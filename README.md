@@ -3,7 +3,7 @@
 <h2>Contexte du projet</h2>
 Pour façliter l'obtention du permis de conduire au Maroc, Narsa a lancé un appel d'offre pour la création d'une application desktop qui va être déployé dans tous les réseaux narsa au Maroc.
 
-Pour ce faire vous êtes invités à créer une application bureau multi plateforme en Electron Js qui va permetre de:
+Pour ce faire vous êtes invités à créer une application bureau multi plateforme en <h2>Electron</h2> Js qui va permetre de:
 
 choisir le type de parmis qui'il va passer, par exemple le candidat doit choisir entre permis type B de voiture ou camion type A
 
