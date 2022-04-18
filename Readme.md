@@ -15,7 +15,7 @@ si le candidat réussi le test, une nouvelle fenêtre s'affiche pour enregistrer
 
 le système enregistre toutes les informations des candidats admis
 
-le responsable de l'exam va consulter via son interface les statistiques et les informations de chaque candidate
+le responsable de l'examen va consulter via son interface les statistiques et les informations de chaque candidate
 
 ```
 
