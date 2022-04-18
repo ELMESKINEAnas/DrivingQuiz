@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/Registre.css">
+    <script src="../node_modules/axios/dist/axios.js"></script>
+    <title>Register</title>
+</head>
+<body>
+          <div class="row">
+    <div class="col-md-12">
+      <form id="formlg">
+        <h1> المرجو ادخال بيناتك </h1>
+        <fieldset>     
+          <legend><span class="number">1</span> بيناتك الشخصية</legend>  
+          <label for="name">الاسم الكامل:</label>
+          <input type="text" id="username" name="username">   
+          <label for="email">البريد الالكتروني:</label>
+          <input type="email" id="email" name="email">      
+        </fieldset>
+       
+        <button type="submit">حفظ</button>
+        
+       </form>
+        </div>
+      </div>
+      <script>
+        function getParameterByName(name, url) {
+        if (!url) url = window.location.href;
+        name = name.replace(/[\[\]]/g, '\\$&');
+        var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+            results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, ' '));
+    }
+    var score = getParameterByName('score');
+    console.log(score);
+    const formlg = document.getElementById('formlg')
+    console.log(formlg);
+window.addEventListener('DOMContentLoaded', () => {
+	formlg.addEventListener('submit', async (e) => {
+		e.preventDefault();
+
+        try {
+            let admisFields = {
+                username: formlg.username.value,
+                email: formlg.email.value,
+                score: score
+            }
+            let res = await axios.post("http://localhost:4001/api/user/createUserAdmis", admisFields);
+            console.log(res)
+            let resDetails = await res.data;
+            if (resDetails.status == true) {
+                location.replace('landing_page.html');
+            } else {
+                console.log("Email or password are incorrect")
+            }
+        } catch (e) {
+            console.error(e);
+        }
+	})
+})
+      </script>
+</body>
+</html>

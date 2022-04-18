@@ -75,6 +75,7 @@ const authenticate = (req, res) => {
         });
         res.send({
             message: "admin authenticated",
+            status:true,
             token
         });
     });

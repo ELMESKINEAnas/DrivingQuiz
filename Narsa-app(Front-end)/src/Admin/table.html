@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/table.css">
+	<script src="../../node_modules/axios/dist/axios.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <h2><a  target="_blank"> valid drivers</a></h2>
+
+<table class="container">
+	<thead>
+		<tr>
+			<th><h1>Username</h1></th>
+			<th><h1>Email</h1></th>
+			<th><h1>Score</h1></th>
+		</tr>
+	</thead>
+	<tbody  id="tablebody">
+
+	</tbody>
+</table>
+<script>
+	const tablebody = document.getElementById('tablebody')
+window.addEventListener('DOMContentLoaded', async () => {
+        try { 
+            let data = await axios.get("http://localhost:4001/api/admin/getAllUserAdmis");
+			for (var i in data.data.userAdmis) {
+                tablebody.innerHTML += `
+                <tr>
+                                    <td>` + data.data.userAdmis[i].username + `</td>
+                                    <td>` + data.data.userAdmis[i].email + `</td>
+                                    <td>` + data.data.userAdmis[i].score + `</td>
+                                </tr>
+                `
+            }
+
+        } catch (e) {
+            console.error(e);
+        }
+	})
+</script>
+</body>
+</html>
